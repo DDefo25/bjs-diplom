@@ -2,10 +2,9 @@
 
 const userForm = new UserForm();
 
-userForm.loginFormCallback = data => {
-    let {login, password} = data;
-    ApiConnector.login({login, password}, response => {
-        let {success, error} = response;
+userForm.loginFormCallback = request => {
+    ApiConnector.login(request, response => {
+        let { success, error } = response;
         if (success) {
             location.reload();
         } else {
@@ -14,10 +13,9 @@ userForm.loginFormCallback = data => {
     })
 }
 
-userForm.registerFormCallback = data => {
-    let {login, password} = data;
-    ApiConnector.register({login, password}, response => {
-        let {success, error} = response;
+userForm.registerFormCallback = request => {
+    ApiConnector.register(request, response => {
+        let { success, error } = response;
         if (success) {
             location.reload();
         } else {
